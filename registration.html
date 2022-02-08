@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <style>
+            tr td{
+                padding:2px;
+                text-align:center;
+            }
+            table{
+                width:700px;
+            }
+            input[type="text"] ,input[type="email"],input[type="password"],textarea{
+                border:none;
+                border-bottom:1px solid white;
+                background:transparent;
+                outline:none;
+                height:40px;
+                color:white;
+                font-size: 17px;
+                width:100%
+            }
+            select{
+                border-color: none;
+                border-radius: 10px;
+                width:100%
+            }
+            input[type="radio"],h4{
+                width:100px;
+                float:left;
+                
+            }
+            input[type="checkbox"]{
+                margin-bottom:20px;
+            }
+            .c{
+                padding-left:30px;
+                text-align:center;
+            }
+            .container{
+                position:absolute;
+                top:50%;
+                left:50%;
+                transform:translate(-50%,-50%);
+                background: black;
+                opacity:0.5;
+                color:white;
+                padding:30px;
+                border-radius:30px;
+                box-shadow:0 15px 50px rgb(48, 49, 49);
+                width : 800px;
+                font-weight:bold;
+            }
+            .container:hover{
+                opacity:0.8;
+            }
+            a{
+                background:rgb(20, 49, 77);
+                color:white;
+                font-size:19px;
+                border-radius:25px;
+                padding:5px 10px 10px 10px;
+            }
+            a:hover{
+                background:green;
+            }
+            input[type="submit"]{
+                background:rgb(20, 49, 77);
+                color:white;
+                font-size:19px;
+                border-radius:25px;
+                padding:5px 10px 10px 10px;
+            }
+            input[type="submit"]:hover{
+                background:green;
+            }
+        </style>
+        <script>
+            function function1(){
+                var a=document.getElementById("ch1");
+                var b=document.getElementById("l1");
+                if(a.checked){
+                    var email=document.getElementById("email").value;
+                    let exp=/^([0-9]|[A-Z]|[a-z])+@gmail.com$/
+                    if(exp.test(email)){
+                        var password1=document.getElementById("password1").value;
+                        let exp2=/^[^ ]{5,10}$/
+                        if(exp2.test(password1)){
+                            var password2=document.getElementById("password2").value;
+                            if (password2==password1){
+                                var country=document.getElementById("country");
+                                if(country.value=="select_your_country"){
+                                    alert("selectionner un choix");
+                                }
+                                else{
+                                    var rd1=document.getElementById("rd1"); 
+                                    var rd2=document.getElementById("rd2");
+                                    var choix;
+                                    if(rd1.checked){
+                                        choix=rd1.value;
+                                    }                                          
+                                    if(rd1.checked){
+                                        choix=rd1.value;
+                                    }
+                                    if(choix!=""){
+                                        var exp3=/^([a-z]|[A-Z])+$/;
+                                        var first_name=document.getElementById("first_name").value;
+                                        var second_name=document.getElementById("second_name").value;
+                                        if (exp3.test(first_name) && exp3.test(second_name)){
+                                            var adress=document.getElementById("adress").value;
+                                            if(adress!=""){
+                                                alert("we have registered your information you can log in now");
+                                            }
+                                            else{
+                                                alert("you must write your address");
+                                            }
+                                        }
+                                        else{
+                                            alert("you must write your first and second name corectly");
+                                        }
+                                    }
+                                    else{
+                                        alert("you have to choose a choice");
+                                    }                
+                                }
+                            }
+                            else{
+                                alert("you have to repeat the same password");
+                            }      
+                        }
+                        else
+                        {
+                            alert("it is necessary to write the password correctly and it should contains at least 5 caracters and at most 10 caracters");
+                        }
+                    }
+                    else
+                    {
+                        alert("you have to write the email corectly");
+                    }
+                }
+                    
+                else
+                {
+                    alert("you must be agree with our condition");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <section class="header">
+            <div class="container">
+                <form >
+                        <legend>registration</legend>
+                        <table>
+                            <tr><td><h3>name</h3></td><td><input type="text" placeholder="first nam" id="first_name" ></td><td><input type="text" placeholder="second name" id="second_name" class="w"></td></tr>
+                            <tr><td><h3>email</h3></td><td colspan="2"><input type="email" placeholder="email" id="email" ></td></tr>
+                            <tr><td><h3>adress</h3></td><td colspan="2"><textarea name="adress" id="adress" cols="30" rows="2"  placeholder="adress"></textarea></td></tr>
+                            <tr><td><h3>password</h3></td><td><input type="password" placeholder="********" id="password1" class="w"></td></tr>
+                            <tr><td><h3>password</h3></td><td><input type="password" placeholder="********" id="password2" class="w"></td></tr>
+                            <tr><td><h3>country</h3></td><td>
+                                <select name="country" id="country" >
+                                    <option disabled selected="selected" value="select_your_country">select your country</option>
+                                    <option value="maroc">maroc</option>
+                                    <option value="Algeria">Algeria</option>
+                                    <option value="Egypt">Egypt</option>
+                                    <option value="	Tunisia">Tunisia</option>
+                                </select>
+                            </td></tr>
+                            <tr><td><h3>sexe</h3></td><td colspan="2">
+                                <input type="radio" name="sexe" id="rd1" ><h4 >male</h4>
+                                <input type="radio" name="sexe" id="rd2" ><h4 >female</h4>
+                            </td></tr>
+                        </table>
+                        <div class="c">
+                            <p><b>In case of full access to your site, invoices, documents, private content, the list of administrators... everything can be used.</b></p>
+                            <input type="checkbox" id ="ch1" >I agree with the condition<br/>
+                            <input type="submit" value="registration" onclick="function1()">
+                            <a href="log_in.html" id="l1">log_in</a>
+                        </div>
+                </form>
+            </div>
+         </section>
+    </body>
+</html>
